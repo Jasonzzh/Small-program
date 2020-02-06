@@ -1,0 +1,59 @@
+/* pages/login/login.wxss */
+.login {
+  position: relative;
+}
+
+.login .logo {
+  width: 130rpx;
+  display: block;
+  margin: 0 auto;
+  padding-top: 120rpx;
+}
+
+.form {
+  width: 76%;
+  margin: 80rpx auto 0;
+  position: relative;
+}
+
+.van-cell {
+  border-bottom: 2rpx solid rgb(230,230,230);
+  padding: 8px 12px;
+  margin-top: 20rpx;
+}
+
+.submit {
+  width: 100%;
+  background: rgb(72,153,243);
+  display: block;
+  height: 80rpx;
+  border-radius: 40rpx;
+  text-align: center;
+  color: #FFF;
+  line-height: 80rpx;
+  margin-top: 140rpx;
+}
+
+.van-checkbox__label {
+  font-size: 28rpx;
+  color: rgb(120,120,120) !important;
+  letter-spacing: 2rpx;
+}
+
+.van-checkbox__icon-wrap {
+  top: 4rpx;
+  position: relative;
+}
+
+.van-checkbox {
+  margin-top: 30rpx;
+}
+
+.bottom-info {
+  display: flex;
+  font-size: 28rpx;
+  color: rgb(120,120,120);
+  margin-top: 60rpx;
+  justify-content: space-between;
+  letter-spacing: 2rpx;
+}

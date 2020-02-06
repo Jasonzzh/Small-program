@@ -1,0 +1,22 @@
+/* components/common/goBack/goBack.wxss */
+.back {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding-bottom: 20rpx;
+  background: #FFF;
+  z-index: 9;
+  border-bottom: 2rpx solid rgb(230,230,230);
+}
+
+.backIcon {
+  width: 40rpx;
+  position: absolute;
+  left: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+}

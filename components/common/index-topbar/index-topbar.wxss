@@ -1,0 +1,19 @@
+/* components/common/index-topbar/index-topbar.wxss */
+.navbar {
+  padding: 0 30rpx 26rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #FFF;
+  z-index: 999;
+  width: 100%;
+}
+
+.weui-input {
+  width: 60%;
+  background: rgb(246,246,246);
+  height: 66rpx;
+  border-radius: 33rpx;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+}

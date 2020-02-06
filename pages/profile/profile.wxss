@@ -1,0 +1,86 @@
+/* pages/profile/profile.wxss */
+.profile {
+  height: 100vh;
+  background: rgb(245,245,245);
+}
+
+.container {
+  position: relative;
+}
+
+.container .form {
+  box-shadow: 0 0 10rpx rgba(0,0,0,0.1);
+}
+
+.van-uploader {
+  display: block;
+  width: 100%;
+}
+
+.uploadImg-box {
+  background: #FFF;
+  display: flex;
+  width: 100%;
+  padding:30rpx;
+  align-items: center;
+}
+
+.label-uploadImg {
+  font-size: 28rpx;
+  color: #323233;
+}
+
+.arrow-right {
+  width: 40rpx;
+}
+
+.user-img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-left: 420rpx;
+}
+
+.van-cell__title {
+  height: 100rpx;
+  line-height: 100rpx;
+  max-width: 40px !important;
+  min-width: 40px !important;
+}
+
+.van-cell__title, .van-cell__value {
+  border-top: 2rpx solid rgb(240,240,240);
+}
+
+.van-cell {
+  padding: 0 15px !important;
+}
+
+.van-field__body {
+  height: 100rpx;
+}
+
+.save {
+  width: 100%;
+  height: 100rpx;
+  margin-top: 30rpx;
+  background: #FFF;
+  text-align: center;
+  line-height: 100rpx;
+  color: rgb(95,153,214);
+  font-size: 32rpx;
+  box-shadow: 0 0 10rpx rgba(0,0,0,0.1);
+}
+
+.cancle {
+  width: 100%;
+  height: 100rpx;
+  margin-top: 30rpx;
+  background: #FFF;
+  text-align: center;
+  line-height: 100rpx;
+  color: rgb(183,36,30);
+  font-size: 32rpx;
+  box-shadow: 0 0 10rpx rgba(0,0,0,0.1);
+}
+

@@ -1,0 +1,9 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "go-back": "/components/common/goBack/goBack",
+    "van-field": "/vant-weapp/field",
+    "van-uploader": "/vant-weapp/uploader",
+    "van-toast": "/vant-weapp/toast"
+  }
+}

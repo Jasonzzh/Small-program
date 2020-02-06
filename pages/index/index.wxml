@@ -1,0 +1,85 @@
+<!--index.wxml-->
+<view class="index">
+  <index-topbar/>
+  <view class="content-box" style="margin-top: {{position.top}}px">
+    <van-tabs swipeable line-width="20" line-height="2" animated bind:change="onChangeTab">
+      <van-tab title="热门" name="6">
+        <view class="container">
+          <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#FFF" indicator-active-color='#12b7de'>
+            <block wx:for="{{newsList}}" wx:key="key" wx:if="{{index < 3}}">
+              <swiper-item class="banner-li">
+                <image src="{{item.smallImageUrl}}" class="slide-image" mode="widthFix"/>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view class="news-list">
+            <view class="news-item" wx:for="{{newsList}}" wx:key data-id='{{item.id}}'  bindtap="goArticleDetail">
+              <view class="news-title">{{item.title}}</view>
+              <view class="news-content">{{item.smallTitle}}</view>
+              <view class="tag-info">
+                <view class="author">{{item.authorName}}</view>
+                <view class="read-count">
+                  <span class="date">{{item.releaseDate}}</span>
+                  阅读量{{item.readCount}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="数据库" name="7">
+        <view class="news-box">
+          <view class="news-list">
+            <view class="news-item" wx:for="{{newsList}}" wx:key data-id='{{item.id}}' bindtap="goArticleDetail">
+              <view class="news-title">{{item.title}}</view>
+              <view class="news-content">{{item.smallTitle}}</view>
+              <view class="tag-info">
+                <view class="author">{{item.author}}</view>
+                <view class="read-count">
+                  <span class="date">{{item.releaseDate}}</span>
+                  阅读量{{item.readCount}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="webGL" name="8">
+        <view class="news-box">
+          <view class="news-list">
+            <view class="news-item" wx:for="{{newsList}}" wx:key data-id='{{item.id}}' bindtap="goArticleDetail">
+              <view class="news-title">{{item.title}}</view>
+              <view class="news-content">{{item.smallTitle}}</view>
+              <view class="tag-info">
+                <view class="author">{{item.author}}</view>
+                <view class="read-count">
+                  <span class="date">{{item.releaseDate}}</span>
+                  阅读量{{item.readCount}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="php" name="9">
+        <view class="news-box">
+          <view class="news-list">
+            <view class="news-item" wx:for="{{newsList}}" wx:key data-id='{{item.id}}' bindtap="goArticleDetail">
+              <view class="news-title">{{item.title}}</view>
+              <view class="news-content">{{item.smallTitle}}</view>
+              <view class="tag-info">
+                <view class="author">{{item.author}}</view>
+                <view class="read-count">
+                  <span class="date">{{item.releaseDate}}</span>
+                  阅读量{{item.readCount}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+    <view class="loading" wx:if="{{!isDataCompleted}}"></view>
+    <view class="loading-text" wx:if="{{isDataCompleted}}">没有更多了</view>
+  </view>
+</view>

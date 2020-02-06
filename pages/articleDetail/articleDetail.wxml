@@ -1,0 +1,60 @@
+<!--pages/articleDetail/articleDetail.wxml-->
+<view class="article-box">
+  <view class="article-detail">
+    <view class="title">{{articleData.title}}</view>
+    <view class="userInfo">
+      <image src="{{articleData.authorPortrait ? articleData.authorPortrait : defaultPortrait}}" class="userPic"/>
+      <view class="name">
+        <view class="user-name">
+          {{articleData.authorName}}
+        </view>
+        <view class="time">
+          {{articleData.releaseDate}}
+        </view>
+      </view>
+      <view class="follow">关注</view>
+    </view>
+    <view class="content">
+      <rich-text nodes="{{articleData.content}}" space="nbsp"/>
+    </view>
+  </view>
+  <view class="comment-box">
+    <view class="comment-title">评价</view>
+    <view class="comment-list">
+      <view class="comment-item" wx:for="{{commentList}}" wx:key="index">
+        <view class="content-top">
+          <image src="{{item.userPic}}" class="imgPic"/>
+          <view class="comment-userInfo">
+            <view class="name">{{item.name}}</view>
+            <view class="autograph">
+              {{item.autograph}}
+            </view>
+          </view>
+          <view class="feel-like">
+            <image src="/images/articleDetails/like.png"/>
+            {{item.commentLike}}
+          </view>
+        </view>
+        <view class="comment-text">{{item.content}}</view>
+      </view>
+    </view>
+    <view class="no-comment" wx:if="{{loadingStatus && !commentList.length}}">暂无评价</view>
+    <view class="loading-status" wx:else>{{loadingStatus ? '没有更多了~' : '正在加载'}}</view>
+  </view>
+  <view class="foot-bar" style="padding-bottom: {{isIphoneX !== -1 ? '10px' : 0}}" hidden="{{isFocus}}">
+    <view class="good-like" bindtap="clickLick">
+      <image src="{{!isLike ? '/images/articleDetails/likeIcon.png' : '/images/articleDetails/likeIconActive.png'}}" mode="widthFix"/>
+      {{detailData.dynamicLike}}
+    </view>
+    <view class="open-comment" bindtap="openKeyboard">
+      <image src="/images/articleDetails/commentIcon.png" mode="widthFix"/>
+      {{detailData.dynamicComment}}
+    </view>
+    <button class="open-share" open-type='share'>
+      <image src="/images/articleDetails/shareIcon.png" mode="widthFix"/>
+    </button>
+  </view>
+  <view class="write-input" style="padding-bottom: {{isIphoneX !== -1 ? '20px' : '10px'}}" hidden="{{!isFocus}}">
+    <input placeholder="快来说点什么吧~" value="{{inputValue}}" focus="{{isFocus}}" bindblur="closeKeyboard" placeholder-style="color: #CCC;" bindconfirm="sendText" bindinput="changeInput"/>
+  </view>
+</view>

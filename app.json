@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/mine/mine",
+    "pages/search/search",
+    "pages/login/login",
+    "pages/setup/setup",
+    "pages/profile/profile",
+    "pages/music/music",
+    "pages/articleDetail/articleDetail",
+    "pages/myCollectArticles/myCollectArticles",
+    "pages/myBlogs/myBlogs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#ee0a24",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "images/tabBar/homeIcon_active.png",
+        "iconPath": "images/tabBar/homeIcon.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/tabBar/music_active.png",
+        "iconPath": "images/tabBar/music.png",
+        "pagePath": "pages/music/music",
+        "text": "音乐"
+      },
+      {
+        "selectedIconPath": "images/tabBar/mineIcon_active.png",
+        "iconPath": "images/tabBar/mineIcon.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  }
+}

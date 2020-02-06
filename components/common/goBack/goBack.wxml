@@ -1,0 +1,10 @@
+<!--components/common/goBack/goBack.wxml-->
+<view class="back" style="padding-top: {{position.top}}px">
+  <image 
+    src="/images/back.png" 
+    class="backIcon"
+    bindtap="goback"
+    mode="widthFix"
+    style="top: {{position.top}}px"/>
+  <text class="title">{{title}}</text>
+</view>

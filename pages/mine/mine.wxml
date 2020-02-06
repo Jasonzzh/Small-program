@@ -1,0 +1,80 @@
+<!--pages/mine/mine.wxml-->
+<view class="mine">
+  <view class="user-info">
+    <view class="user-login">
+      <view class="user-img">
+        <image src="{{userInfo.userPic ? userInfo.userPic : defaultPortrait}}"/>
+      </view>
+      <view class="user-action">
+        <span bindtap="goLogin" wx:if="{{!userInfo}}">登录</span>
+        <span wx:if="{{!userInfo}}">/</span>
+        <span bindtap="goLogin" wx:if="{{!userInfo}}">注册</span>
+        <span wx:if="{{userInfo}}">{{userInfo.name}}</span>
+        <view class="user-name">用户名: {{userInfo.iphone ? userInfo.iphone : '无'}}</view>
+      </view>
+      <view class="arrow-right-box" bindtap="goProfile">
+        <image src="/images/arrow-right.png" mode="widthFix" class="arrow-right"/>
+      </view>
+    </view>
+    <view class="user-statistics">
+      <view class="item">
+        <view class="num">0</view>
+        <view>关注</view>
+      </view>
+      <view class="item">
+        <view class="num">0</view>
+        <view>粉丝</view>
+      </view>
+      <view class="item">
+        <view class="num">0</view>
+        <view>访客</view>
+      </view>
+      <view class="item">
+        <view class="num">0</view>
+        <view>排名</view>
+      </view>
+    </view>
+  </view>
+  <view class="action-list">
+    <view class="action-item">
+      <view class="icon" style="background: rgb(230,74,82);">
+        <image src="/images/article.png" mode="widthFix"/>
+      </view>
+      <view class="item-text">
+        <view class="name">我的博客</view>
+        <view class="article-num">0 篇 <image src="/images/arrow-right.png" mode="widthFix"/></view>
+      </view>
+    </view>
+    <view class="action-item">
+      <view class="icon" style="background: rgb(66,211,164);">
+        <image src="/images/collection.png" mode="widthFix"/>
+      </view>
+      <view class="item-text">
+        <view class="name">我的收藏</view>
+        <view class="article-num">0 篇 <image src="/images/arrow-right.png" mode="widthFix"/></view>
+      </view>
+    </view>
+    <view class="action-item">
+      <view class="icon" style="background: rgb(255,183,60);">
+        <image src="/images/write-blog.png" mode="widthFix"/>
+      </view>
+      <view class="item-text">
+        <view class="name">写博客</view>
+        <view class="article-num">
+          <image src="/images/arrow-right.png" mode="widthFix"/>
+        </view>
+      </view>
+    </view>
+    <view class="action-item">
+      <view class="icon" style="background: rgb(159,166,184);">
+        <image src="/images/setup.png" mode="widthFix"/>
+      </view>
+      <view class="item-text" bindtap="goSetup">
+        <view class="name">设置</view>
+        <view class="article-num">
+          <image src="/images/arrow-right.png"  mode="widthFix"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

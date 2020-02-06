@@ -1,0 +1,130 @@
+/**index.wxss**/
+.content-box {
+  position: relative;
+  width: 100%;
+  padding-top: 92rpx;
+  padding-bottom: 20rpx;
+}
+
+.container {
+  position: relative;
+  background: #FFF;
+  margin-top: 10rpx;
+  min-height: 400rpx;
+}
+
+.van-tabs__line {
+  bottom: 12rpx !important;
+}
+
+.banner {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.banner .banner-li {
+  width: 100%;
+}
+
+.banner .banner-li .slide-image {
+  width: 100%;
+}
+
+.news-list {
+  position: relative;
+}
+
+.news-list .news-item {
+  margin: 26rpx 30rpx;
+  border-bottom: 2rpx solid rgb(211,211,211);
+}
+
+.news-list .news-item .news-title {
+  font-size: 32rpx;
+  line-height: 50rpx;
+  letter-spacing: 2rpx;
+}
+
+.news-content {
+  font-size: 26rpx;
+  color: #999;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 60rpx;
+}
+
+.tag-info {
+  font-size: 24rpx;
+  display: flex;
+  margin-bottom: 24rpx;
+}
+
+.tag-info  .read-count {
+  margin-left: auto;
+  color: #999;
+}
+
+.tag-info .author {
+  color: rgb(114,177,221);
+}
+
+/*---底部加载动画---*/
+.loading-text {
+  font-size: 26rpx;
+  text-align: center;
+  color: rgb(120,120,120);
+}
+
+.loading {
+  position: relative;
+  margin: 20rpx auto 0;
+  width: 30rpx;
+  height: 30rpx;
+  background: #3498db;
+  border-radius: 50rpx;
+  animation: loading 1.5s infinite linear;
+}
+
+.loading::after {
+  position: absolute;
+  width: 50rpx;
+  height: 50rpx;
+  border-top: 10rpx solid #9b59b6;
+  border-bottom: 10rpx solid #9b59b6;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-radius: 50rpx;
+  content: '';
+  top: -20rpx;
+  left: -20rpx;
+  animation: loading_after 1.5s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    background: #2ecc71;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading_after{
+  0% {
+    border-top:10rpx solid #9b59b6;
+    border-bottom:10rpx solid #9b59b6;
+  }
+  50% {
+    border-top:10rpx solid #3498db;
+    border-bottom:10rpx solid #3498db;
+  }
+  100% {
+    border-top:10rpx solid #9b59b6;
+    border-bottom:10rpx solid #9b59b6;
+  }
+}
