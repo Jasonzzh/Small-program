@@ -18,8 +18,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    goback() {//返回上一页 
-      wx.navigateBack();
+
+    // 返回上一页 
+    goback() {
+      wx.navigateBack({
+        delta: 1
+      })
     }
+    
   }
 })

@@ -14,21 +14,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.isLogin()
-    console.log('onLoad')
+
   },
-  // 个人信息初始化
-  isLogin() {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    } else {
-      this.setData({
-        userInfo: null
-      })
-    }
-  },
+
   // 跳转登录
   goLogin() {
     wx.navigateTo({
@@ -38,6 +26,7 @@ Page({
       }
     })
   },
+
   // 跳转设置
   goSetup() {
     wx.navigateTo({
@@ -47,23 +36,27 @@ Page({
       }
     })
   },
+
   // 跳转个人资料
   goProfile() {
-    if(!app.globalData.userInfo) {
+    const { userInfo } = this.data
+    if (!userInfo) {
       wx.navigateTo({
         url: '../login/login',
         success: function (res) {
           console.log(res)
         }
       })
+    } else {
+      wx.navigateTo({
+        url: '../profile/profile',
+        success: function (res) {
+          console.log(res)
+        }
+      })
     }
-    wx.navigateTo({
-      url: '../profile/profile',
-      success: function(res) {
-        console.log(res)
-      }
-    })
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -75,8 +68,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.isLogin()
-    console.log('onShow')
+    this.setData({
+      userInfo: wx.getStorageSync('userInfo') || null
+    })
   },
 
   /**

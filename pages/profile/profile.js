@@ -18,52 +18,49 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      name: app.globalData.userInfo.name,
-      autograph: app.globalData.userInfo.autograph,
-      uploadImg: app.globalData.userInfo.userPic,
-      userInfo: app.globalData.userInfo,
-    })
+
   },
   cancle() {
     wx.navigateBack()
   },
-  saveProfile() {
-    const params = {
-      id: this.data.userInfo.id,
-      name: this.data.name,
-      autograph: this.data.autograph
-    }
-    Toast.loading({
-      message: '保存中...',
-      duration: 0
-    });
-    util.reqAsync(api.updateProfile,params).then(res => {
-      console.log(res)
-      if(res.data.code == 200) {
-        app.globalData.userInfo = res.data.data
-        Toast.success({
-          message: res.data.msg,
-          duration: 500
-        })
-      } else {
-        Toast.fail({
-          message: res.data.msg,
-          duration: 500
-        })
+
+  async saveProfile() {
+    const { id, name, autograph } = this.data.userInfo
+      , params = {
+        id,
+        name,
+        autograph,
       }
-    })
+    util.loading('保存中...')
+    try {
+      const res = await util.reqAsync(api.updateProfile, params)
+      if (res.data.code == 200) {
+        util.toastSuccess(res.data.msg)
+        const { data } = res.data
+        this.setData({
+          userInfo: data
+        })
+        wx.setStorageSync('userInfo', data)
+      } else {
+        util.toastFail(res.data.msg)
+      }
+    } catch (err) {
+      console.log(err)
+    }
   },
-  onChangeName(event) {
+
+  onChangeName(e) {
     this.setData({
-      name: event.detail
+      'userInfo.name': e.detail,
     })
   },
-  onChangeAutograph(event) {
+
+  onChangeAutograph(e) {
     this.setData({
-      autograph: event.detail
+      'userInfo.autograph': e.detail,
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -75,7 +72,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      userInfo: wx.getStorageSync('userInfo')
+    })
   },
 
   /**

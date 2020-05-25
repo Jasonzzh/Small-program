@@ -9,12 +9,14 @@
   background: #FFF;
   z-index: 9;
   border-bottom: 2rpx solid rgb(230,230,230);
+  line-height: 74rpx;
 }
 
 .backIcon {
   width: 40rpx;
   position: absolute;
   left: 20rpx;
+  margin-top: 20rpx;
 }
 
 .title {

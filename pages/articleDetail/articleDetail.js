@@ -32,11 +32,13 @@ Page({
       wx.hideLoading()
     })
   },
+  
   // 获取数据
   async getData() {
     this.getArticle()
     this.getComments()
   },
+
   // 获取文章详情
   async getArticle() {
     const params = {
@@ -51,6 +53,7 @@ Page({
       util.toastFail(res.data.msg)
     }
   },
+
   // 获取文章评论
   async getComments() {
     const { id, pageNo, pageSize } = this.data
@@ -73,18 +76,21 @@ Page({
       util.toastFail(res.data.msg)
     }
   },
+
   // 聚焦input
   openKeyboard() {
     this.setData({
       isFocus: true
     })
   },
+
   // 失焦
   closeKeyboard() {
     this.setData({
       isFocus: false
     })
   },
+
   // 输入
   changeInput(e) {
     const { value } = e.detail
@@ -92,16 +98,17 @@ Page({
       inputValue: value
     })
   },
+
   // 发布
   async sendText() {
-    if(!this.isLogin()) return
+    if (!util.isLogin()) return
     const { id, inputValue, } = this.data
     ,regu = "^[ ]+$"
     ,re = new RegExp(regu)
     console.log(inputValue)
     if (inputValue == '' || re.test(inputValue)) {
-      this.toast('内容不能为空!')
-      return false
+      util.toast('内容不能为空!')
+      return
     }
     wx.showLoading()
     const params = {
@@ -123,26 +130,7 @@ Page({
       util.toastFail(res.data.msg)
     }
   },
-  // 是否登录
-  isLogin() {
-    if(!wx.getStorageSync('userInfo')) {
-      wx.showModal({
-        title: '提示',
-        content: '请您先登录！',
-        success(res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: '../login/login',
-            })
-            return true
-          } else {
-            return false
-          }
-        }
-      })
-    }
-    return true
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

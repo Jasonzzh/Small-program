@@ -15,42 +15,38 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.isLogin()
+
   },
+
   // 退出和登录
   loginOut() {
-    if(this.data.loginState) {
-      app.globalData.userInfo = null
-      wx.navigateBack()
-    } else {
+    const { userInfo } = this.data
+    if (!userInfo) {
       wx.navigateTo({
         url: '../login/login',
-        success: function(res) {
-          console.log(res)
-        }
       })
+      return
     }
+    wx.removeStorage({
+      key: 'userInfo',
+    })
+    wx.navigateBack()
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
   },
-  isLogin() {
-    let loginState = false
-    if(app.globalData.userInfo) {
-      loginState = true
-    }
-    this.setData({
-      loginState,
-    })
-  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.isLogin()
+    this.setData({
+      userInfo: wx.getStorageSync('userInfo') || null
+    })
   },
 
   /**

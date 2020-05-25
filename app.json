@@ -30,12 +30,6 @@
         "text": "首页"
       },
       {
-        "selectedIconPath": "images/tabBar/music_active.png",
-        "iconPath": "images/tabBar/music.png",
-        "pagePath": "pages/music/music",
-        "text": "音乐"
-      },
-      {
         "selectedIconPath": "images/tabBar/mineIcon_active.png",
         "iconPath": "images/tabBar/mineIcon.png",
         "pagePath": "pages/mine/mine",

@@ -20,12 +20,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
   },
+
   onChangeCheck(event) {
     this.setData({
       checked: event.detail
     });
   },
+
   login() {
     const { iphone, password } = this.data
     const params = {
@@ -70,16 +73,19 @@ Page({
     }
     console.log('登录')
   },
+
   onChangePassword(event) {
     this.setData({
       password: event.detail
     })
   },
+
   onChangeIphone(event) {
     this.setData({
       iphone: event.detail
     })
   },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

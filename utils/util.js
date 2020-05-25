@@ -31,6 +31,13 @@ const reqAsync = (url,params) => {
   return p
 }
 
+const loading = (msg) => {
+  wx.showToast({
+    title: msg,
+    icon: 'loading'
+  })
+}
+
 const toast = (msg) => {
   wx.showToast({
     title: msg,
@@ -55,10 +62,34 @@ const toastFail = (msg) => {
   })
 }
 
+// 是否登录
+const isLogin = () => {
+  if (!wx.getStorageSync('userInfo')) {
+    wx.showModal({
+      title: '提示',
+      content: '请您先登录！',
+      success(res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '../login/login',
+          })
+          return true
+        } else {
+          return false
+        }
+      }
+    })
+    return false
+  }
+  return true
+}
+
 module.exports = {
   formatTime,
   reqAsync,
+  loading,
   toast,
   toastSuccess,
   toastFail,
+  isLogin,
 }

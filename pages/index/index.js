@@ -17,45 +17,56 @@ Page({
     nums: 16,
     category: 6,
   },
+
   onLoad: function () {
-    console.log('成功')
-    this.getArticleLsit()
+    this.getInit()
   },
+
+  async getInit() {
+    util.loading('加载中')
+    const p1 = this.getArticleLsit()
+    Promise.all([p1])
+    wx.hideToast()
+  },
+
   /* 获取列表数据 */
-  getArticleLsit () {
-    const _this = this
-    const params = {
-      page: this.data.page,
-      nums: this.data.nums,
-      category_id: this.data.category,
-    }
-    util.reqAsync(api.indexList,params).then(res => {
-      console.log(res.data)
-      if(res.data.code == 200) {
+  async getArticleLsit () {
+    const { page, nums, category, newsList } = this.data
+      , params = {
+        page,
+        nums,
+        category_id: category,
+      }
+    try {
+      const res = await util.reqAsync(api.indexList, params)
+      if (res.data.code == 200) {
         let isDataCompleted = false
-        if(res.data.data.length < this.data.nums) {
-          isDataCompleted = true
-        }
-        _this.setData({
-          newsList: [...this.data.newsList,...res.data.data],
+          , { data } = res.data
+        if (data.length < nums) isDataCompleted = true
+        this.setData({
+          newsList: [ ...newsList, ...data ],
           isDataCompleted,
         })
       }
-    })
+    } catch (err) {
+      util.toast('数据获取失败!请检查网络!')
+    }
   },
+
   // tab切换回调
-  onChangeTab(e) {
+  async onChangeTab(e) {
     let { name, index } = e.detail
-    if(name == this.data.category) return
-    console.log(e.detail)
+      , { category } = this.data
+    if (name == category) return
     this.setData({
       page: 0,
       category: parseInt(name),
       newsList: [],
       isDataCompleted: false,
     })
-    this.getArticleLsit()
+    await this.getArticleLsit()
   },
+
   // 跳转文章详情
   goArticleDetail(e) {
     const { id, category } = e.currentTarget.dataset
@@ -66,15 +77,29 @@ Page({
       }
     })
   },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  async onPullDownRefresh() {
+    this.setData({
+      page: 1,
+      newsList: [],
+      isDataCompleted: false,
+    })
+    await this.getArticleLsit()
+    wx.stopPullDownRefresh()
+  },
+
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    if (!this.data.isDataCompleted) {
-      this.setData({
-        page: this.data.page + 1
-      })
-      this.getArticleLsit()
-    }
+  async onReachBottom() {
+    const { isDataCompleted, page } = this.data
+    if (isDataCompleted) return
+    this.setData({
+      page: page + 1
+    })
+    await this.getArticleLsit()
   },
 })

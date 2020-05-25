@@ -54,7 +54,7 @@
       <image src="/images/articleDetails/shareIcon.png" mode="widthFix"/>
     </button>
   </view>
-  <view class="write-input" style="padding-bottom: {{isIphoneX !== -1 ? '20px' : '10px'}}" hidden="{{!isFocus}}">
+  <view class="write-input" style="padding-bottom: {{isIphoneX !== -1 ? '20px' : '10px'}}" style="opacity: {{ isFocus ? '1' : '0' }}">
     <input placeholder="快来说点什么吧~" value="{{inputValue}}" focus="{{isFocus}}" bindblur="closeKeyboard" placeholder-style="color: #CCC;" bindconfirm="sendText" bindinput="changeInput"/>
   </view>
 </view>

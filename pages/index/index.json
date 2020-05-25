@@ -1,5 +1,7 @@
 {
   "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
   "usingComponents": {
     "index-topbar": "/components/common/index-topbar/index-topbar",
     "van-tab": "vant-weapp/tab",

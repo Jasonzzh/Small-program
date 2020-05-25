@@ -12,6 +12,6 @@
         <image src="/images/arrow-right.png" mode="widthFix"/>
       </view>
     </view>
-    <view class="login-out" bindtap="loginOut">{{loginState ? '退出登录' : '登录'}}</view>
+    <view class="login-out" bindtap="loginOut">{{ userInfo ? '退出登录' : '登录' }}</view>
   </view>
 </view>

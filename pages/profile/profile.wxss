@@ -6,6 +6,7 @@
 
 .container {
   position: relative;
+  margin-top: 92rpx;
 }
 
 .container .form {
