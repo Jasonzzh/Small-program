@@ -100,12 +100,13 @@
   position: relative;
   border-radius: 12rpx;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .action-item .icon image {
-  width: 34rpx;
-  position: relative;
-  top: 6rpx;
+  width: 32rpx;
 }
 
 .item-text {

@@ -81,6 +81,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '这是一个不错的小程序、推荐给你',
+      path: '/pages/index/index',
+      imageUrl: '/images/shareImg.jpg'
+    }
   }
 })

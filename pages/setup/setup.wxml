@@ -3,10 +3,10 @@
   <go-back title="{{title}}" position="{{position}}"/>
   <view class="container" style="top: {{position.top+34}}px">
     <view class="box-top">
-      <view class="share">
+      <button class="share" open-type="share">
         不错，推荐给好友 
         <image src="/images/arrow-right.png" mode="widthFix"/>
-      </view>
+      </button>
       <view class="about-me">
         关于我们
         <image src="/images/arrow-right.png" mode="widthFix"/>

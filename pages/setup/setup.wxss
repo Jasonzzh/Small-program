@@ -29,6 +29,16 @@
   align-items: center;
 }
 
+button.share {
+  padding: 0;
+  border-radius: 0;
+  color: rgb(85,85,85);
+}
+
+button.share::after {
+  border: none;
+}
+
 .box-top image {
   width: 40rpx;
   margin-left: auto;
