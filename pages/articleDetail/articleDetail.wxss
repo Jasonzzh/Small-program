@@ -194,6 +194,7 @@
   background: #FFF;
   padding-top: 10px;
   border:1px solid rgba(238,238,238,1);
+  display: none;
 }
 
 .write-input input {
@@ -205,4 +206,8 @@
   border-radius: 34rpx;
   padding-left: 24rpx;
   margin-bottom: 20rpx;
+}
+
+.lb_view_text {
+  font-size: 32rpx;
 }

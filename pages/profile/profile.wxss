@@ -1,6 +1,6 @@
 /* pages/profile/profile.wxss */
 .profile {
-  height: 100vh;
+  height: calc(100vh - 100rpx);
   background: rgb(245,245,245);
 }
 
@@ -28,7 +28,7 @@
 }
 
 .label-uploadImg {
-  font-size: 28rpx;
+  font-size: 32rpx;
   color: #323233;
 }
 
@@ -56,6 +56,7 @@
 
 .van-cell {
   padding: 0 15px !important;
+  font-size: 32rpx !important;
 }
 
 .van-field__body {
