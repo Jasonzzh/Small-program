@@ -3,7 +3,7 @@
   <index-topbar/>
   <view class="content-box" style="margin-top: {{position.top}}px">
     <van-tabs swipeable line-width="20" line-height="2" animated bind:change="onChangeTab">
-      <van-tab title="热门" name="6">
+      <van-tab title="JS基础" name="6">
         <view class="container">
           <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#FFF" indicator-active-color='#12b7de'>
             <block wx:for="{{newsList}}" wx:key="key" wx:if="{{index < 3}}">
@@ -27,7 +27,7 @@
           </view>
         </view>
       </van-tab>
-      <van-tab title="数据库" name="7">
+      <van-tab title="算法" name="7">
         <view class="news-box">
           <view class="news-list">
             <view class="news-item" wx:for="{{newsList}}" wx:key data-id='{{item.id}}' bindtap="goArticleDetail">
@@ -44,7 +44,7 @@
           </view>
         </view>
       </van-tab>
-      <van-tab title="webGL" name="8">
+      <van-tab title="React" name="8">
         <view class="news-box">
           <view class="news-list">
             <view class="news-item" wx:for="{{newsList}}" wx:key data-id='{{item.id}}' bindtap="goArticleDetail">
@@ -61,7 +61,7 @@
           </view>
         </view>
       </van-tab>
-      <van-tab title="php" name="9">
+      <van-tab title="Vue" name="9">
         <view class="news-box">
           <view class="news-list">
             <view class="news-item" wx:for="{{newsList}}" wx:key data-id='{{item.id}}' bindtap="goArticleDetail">
