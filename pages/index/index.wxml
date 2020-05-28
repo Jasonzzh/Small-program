@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="index">
   <index-topbar/>
-  <view class="content-box" style="margin-top: {{position.top}}px">
+  <view class="content-box" style="margin-top: {{ menuBP.top }}px">
     <van-tabs swipeable line-width="20" line-height="2" animated bind:change="onChangeTab">
       <van-tab title="JS基础" name="6">
         <view class="container">

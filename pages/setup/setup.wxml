@@ -1,7 +1,7 @@
 <!--pages/setup/setup.wxml-->
 <view class="setup">
-  <go-back title="{{title}}" position="{{position}}"/>
-  <view class="container" style="top: {{position.top+34}}px">
+  <go-back title="{{ title }}"/>
+  <view class="container" style="top: {{ menuBP.top }}px">
     <view class="box-top">
       <button class="share" open-type="share">
         不错，推荐给好友 

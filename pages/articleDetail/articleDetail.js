@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    menuBP: app.globalData.menuBP,
     defaultPortrait: '/images/default-image.png',
     isIphoneX: app.globalData.isIphoneX,
     isFocus: false,
@@ -15,7 +16,8 @@ Page({
     pageNo: 0,
     pageSize: 6,
     loadingStatus: false,
-    inputValue: ''
+    inputValue: '',
+    title: '文章详情',
   },
 
   /**
@@ -46,11 +48,13 @@ Page({
     }
     const res = await util.reqAsync(api.articleDetail, params)
     if (res.data.code == 200) {
+      const { data } = res.data
+      data.content = data.content.replace(/<img/g, '<img style="width: 100%"')
       this.setData({
-        articleData: res.data.data
+        articleData: data
       })
     } else {
-      util.toastFail(res.data.msg)
+      util.toast(res.data.msg)
     }
   },
 
@@ -73,7 +77,7 @@ Page({
         loadingStatus,
       })
     } else {
-      util.toastFail(res.data.msg)
+      util.toast(res.data.msg)
     }
   },
 
@@ -125,9 +129,9 @@ Page({
         inputValue: ''
       })
       this.getComments()
-      util.toastSuccess('评论成功')
+      util.toastSuccess('等待审核中')
     } else {
-      util.toastFail(res.data.msg)
+      util.toast(res.data.msg)
     }
   },
 

@@ -12,7 +12,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    position: app.globalData.position
+    menuBP: app.globalData.menuBP
   },
 
   /**

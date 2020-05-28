@@ -10,10 +10,14 @@ Page({
    */
   data: {
     title: '登录',
-    position: app.globalData.position,
+    menuBP: app.globalData.menuBP,
     iphone: '',
     password: '',
     checked: true,
+    loginModel: false,
+    userId: '',
+    userPwd: '',
+    autograph: '',
   },
 
   /**
@@ -23,18 +27,34 @@ Page({
 
   },
 
-  onChangeCheck(event) {
-    this.setData({
-      checked: event.detail
-    });
+  // 登录
+  async login() {
+    const { iphone, password } = this.data
+      , params = {
+        iphone,
+        password,
+      }
+    if (!this.isCheckInfo()) return
+    util.loading('登录中...')
+    try {
+      const res = await util.reqAsync(api.login, params)
+      if (res.data.code == 200) {
+        app.globalData.userInfo = res.data.data
+        wx.setStorageSync('userInfo', res.data.data)
+        util.toastSuccess(res.data.msg)
+        wx.navigateBack()
+      } else {
+        util.toast(res.data.msg)
+      }
+    } catch (err) {
+      util.toast('网络异常!,请检查网络是否连接!')
+      console.log(err)
+    }
   },
 
-  login() {
+  // 登录校验
+  isCheckInfo() {
     const { iphone, password } = this.data
-    const params = {
-      iphone,
-      password,
-    }
     if (typeof iphone == "undefined" || iphone == null || iphone == '') {
       wx.showToast({
         title: '用户名不能为空',
@@ -47,45 +67,76 @@ Page({
         icon: 'none',
       })
       return false
-    } else {
-      wx.showToast({
-        title: '登陆中...',
-        icon: 'loading'
-      })
-      util.reqAsync(api.login,params).then(res => {
-        console.log(res)
-        if(res.data.code == 200) {
-          app.globalData.userInfo = res.data.data
-          wx.setStorageSync('userInfo', res.data.data)
-          wx.set
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'success'
-          })
-          wx.navigateBack()
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'none'
-          })
-        }
-      })
     }
-    console.log('登录')
+    return true
   },
 
-  onChangePassword(event) {
+  // 授权用户信息
+  bindGetUserInfo(e) {
+    console.log(e.detail.userInfo)
+    const { userInfo } = e.detail
     this.setData({
-      password: event.detail
+      name: userInfo.nickName,
+      userPic: userInfo.avatarUrl,
+      loginModel: true
     })
   },
 
-  onChangeIphone(event) {
+  onChangePassword(e) {
     this.setData({
-      iphone: event.detail
+      password: e.detail
+    })
+  },
+
+  onChangeIphone(e) {
+    this.setData({
+      iphone: e.detail
+    })
+  },
+
+  onChangeRgIphone(e) {
+    this.setData({
+      rgIphone: e.detail
+    })
+  },
+
+  onChangeAutograph(e) {
+    this.setData({
+      autograph: e.detail
     })
   },
   
+  onChangeRgPassword(e) {
+    this.setData({
+      rgPassword: e.detail
+    })
+  },
+
+  onClose() {
+    this.setData({ 
+      loginModel: false 
+    })
+  },
+
+  // 注册
+  async register() {
+    const { userId, userPwd, autograph, name, userPic } = this.data
+      , params = {
+        iphone: userId,
+        password: userPwd,
+        autograph,
+        name,
+        userPic,
+        id: userId,
+      }
+    try {
+      const res = await util.reqAsync(api.register, params)
+    } catch (err) {
+      util.toast('网络异常！，请检查网络是否连接！')
+      console.log(err)
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -128,10 +179,4 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

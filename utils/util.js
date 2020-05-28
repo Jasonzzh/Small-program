@@ -20,7 +20,7 @@ const formatNumber = n => {
 const reqAsync = (url,params) => {
   const p = new Promise((resolve,reject) => {
     wx.request({
-      url: config.url + url,
+      url: config.url + 'smartApi/' + url,
       method: 'POST',
       dataType: 'json',
       data: params,
@@ -54,14 +54,6 @@ const toastSuccess = (msg) => {
   })
 }
 
-const toastFail = (msg) => {
-  wx.showToast({
-    title: msg,
-    icon: 'fail',
-    duration: 1200
-  })
-}
-
 // 是否登录
 const isLogin = () => {
   if (!wx.getStorageSync('userInfo')) {
@@ -90,6 +82,5 @@ module.exports = {
   loading,
   toast,
   toastSuccess,
-  toastFail,
   isLogin,
 }

@@ -1,17 +1,18 @@
 // components/common/goBack/goBack.js
+let app = getApp()
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
     title: String,
-    position: null,
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    menuBP: app.globalData.menuBP
   },
 
   /**

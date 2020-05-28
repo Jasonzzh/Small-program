@@ -1,7 +1,7 @@
 <!--pages/profile/profile.wxml-->
 <view class="profile">
-  <go-back title="{{ title }}" position="{{ position }}"/>
-  <view class="container" style="top: {{ position.top }}px">
+  <go-back title="{{ title }}"/>
+  <view class="container" style="top: {{ menuBP.top }}px">
     <view class="form">
       <van-uploader use-slot>
         <view class="uploadImg-box">

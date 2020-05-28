@@ -1,12 +1,12 @@
 /* pages/setup/setup.wxss */
 .setup {
   position: relative;
-  min-height: 100vh;
+  padding-bottom: 938rpx;
   background: rgb(245,245,245);
 }
 
 .container {
-  margin: 30rpx 10rpx;
+  margin: 110rpx 10rpx 0;
   position: relative;
 }
 

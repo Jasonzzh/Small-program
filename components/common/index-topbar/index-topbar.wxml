@@ -1,4 +1,4 @@
 <!--components/common/index-topbar/index-topbar.wxml-->
-<view class="navbar" style="padding-top: {{position.top}}px">
+<view class="navbar" style="padding-top: {{ menuBP.top }}px">
   <input class="weui-input" placeholder="搜索内容" bindtap="goSearch" disabled/>
 </view>

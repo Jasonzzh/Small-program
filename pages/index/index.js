@@ -6,7 +6,7 @@ const app = getApp()
 
 Page({
   data: {
-    position: app.globalData.position,
+    menuBP: app.globalData.menuBP,
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -83,7 +83,7 @@ Page({
    */
   async onPullDownRefresh() {
     this.setData({
-      page: 1,
+      page: 0,
       newsList: [],
       isDataCompleted: false,
     })

@@ -1,6 +1,7 @@
 /* pages/login/login.wxss */
 .login {
   position: relative;
+  margin-top: 98rpx;
 }
 
 .login .logo {
@@ -11,27 +12,29 @@
 }
 
 .form {
-  width: 76%;
-  margin: 80rpx auto 0;
+  margin: 30rpx 50rpx 0;
   position: relative;
 }
 
 .van-cell {
   border-bottom: 2rpx solid rgb(230,230,230);
-  padding: 8px 12px;
   margin-top: 20rpx;
+  font-size: 30rpx !important;
+  margin: 20rpx 0;
+  padding: 18rpx 0 !important;
 }
 
 .submit {
   width: 100%;
   background: rgb(72,153,243);
   display: block;
-  height: 80rpx;
+  height: 72rpx;
   border-radius: 40rpx;
   text-align: center;
   color: #FFF;
-  line-height: 80rpx;
-  margin-top: 140rpx;
+  line-height: 72rpx;
+  margin-top: 100rpx;
+  font-size: 34rpx;
 }
 
 .van-checkbox__label {
@@ -49,11 +52,50 @@
   margin-top: 30rpx;
 }
 
-.bottom-info {
-  display: flex;
+.van-divider {
+  font-size: 28rpx !important;
+  margin-top: 280rpx !important;
+  margin: 0 50rpx !important;
+}
+
+.chat-box {
+  letter-spacing: 1rpx;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 50rpx;
+}
+
+.chat-box image {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  overflow: hidden;
+}
+
+.chat-box view {
   font-size: 28rpx;
-  color: rgb(120,120,120);
-  margin-top: 60rpx;
-  justify-content: space-between;
-  letter-spacing: 2rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 12rpx;
+}
+
+button {
+  background: none;
+  border: none;
+  width: 80rpx;
+  height: 80rpx;
+  padding: 0;
+  margin-top: 20rpx;
+  border-radius: 50%;
+}
+
+button::after {
+  border: none;
+}
+
+.van-popup {
+  padding: 20rpx 50rpx 30rpx !important;
+  border-radius: 30rpx 30rpx 0 0;
 }

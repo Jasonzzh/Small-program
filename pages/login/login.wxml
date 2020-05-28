@@ -1,32 +1,25 @@
 <!--pages/login/login.wxml-->
-<go-back title="{{title}}" position="{{position}}"/>
-<view class="login" style="top: {{position.top+34}}px">
+<go-back title="{{ title }}"/>
+<view class="login" style="top: {{ menuBP.top }}px">
   <image src="/images/logo/logo.png" mode="widthFix" class="logo"></image>
   <view class="form">
     <van-cell-group>
-      <van-field
-        value="{{ iphone }}"
-        placeholder="请输入用户名"
-        border="{{ false }}"
-        bind:change="onChangeIphone"
-      />
-      <van-field
-        value="{{ password }}"
-        type="password"
-        placeholder="请输入密码"
-        border="{{ false }}"
-        bind:change="onChangePassword"
-      />
+      <van-field value="{{ iphone }}" placeholder="请输入账号ID" border="{{ false }}" bind:change="onChangeIphone" left-icon="user-circle-o" />
+      <van-field value="{{ password }}" type="password" placeholder="请输入密码" border="{{ false }}" bind:change="onChangePassword" left-icon="goods-collect-o" />
     </van-cell-group>
-    <van-checkbox 
-      value="{{ checked }}"
-      bind:change="onChangeCheck"
-      icon-size="16px"
-      checked-color="rgb(72,153,243)">记住密码</van-checkbox>
     <van-button type="default" class="submit" bindtap="login">登录</van-button>
-    <view class="bottom-info">
-      <view class="goFindPassword">忘记密码</view>
-      <view class="goRegister">没有账号?去注册</view>
+    <view class="chat-box">
+      <van-divider contentPosition="center">注册方式</van-divider>
+      <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        <image src="/images/login/weixin.png"/>
+      </button>
+      <view>微信注册</view>
     </view>
   </view>
+  <van-popup show="{{ loginModel }}" position="bottom" bind:close="onClose" >
+    <van-field value="{{ rgIphone }}" type="number" placeholder="请输入手机号" border="{{ false }}" bind:change="onChangeRgIphone" left-icon="user-circle-o"/>
+    <van-field value="{{ autograph }}" type="number" placeholder="请输入签名" border="{{ false }}" bind:change="onChangeAutograph" left-icon="goods-collect-o"/>
+    <van-field value="{{ rgPassword }}" type="password" placeholder="请输入密码" border="{{ false }}" bind:change="onChangeRgPassword" left-icon="goods-collect-o"/>
+    <van-button type="default" class="submit" bindtap="register">注册</van-button>
+  </van-popup>
 </view>

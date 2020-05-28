@@ -8,7 +8,7 @@ Page({
    */
   data: {
     title: '设置',
-    position: app.globalData.position, 
+    menuBP: app.globalData.menuBP, 
   },
 
   /**

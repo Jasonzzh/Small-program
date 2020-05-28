@@ -4,6 +4,8 @@
     "go-back": "/components/common/goBack/goBack",
     "van-field": "vant-weapp/field",
     "van-checkbox": "vant-weapp/checkbox",
-    "van-checkbox-group": "vant-weapp/checkbox-group"
+    "van-checkbox-group": "vant-weapp/checkbox-group",
+    "van-divider": "vant-weapp/divider",
+    "van-popup": "vant-weapp/popup"
   }
 }

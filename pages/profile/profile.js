@@ -10,7 +10,7 @@ Page({
    */
   data: {
     title: '个人资料',
-    position: app.globalData.position,
+    menuBP: app.globalData.menuBP,
     defaultImg: '/images/default-image.png',
   },
 
@@ -42,7 +42,7 @@ Page({
         })
         wx.setStorageSync('userInfo', data)
       } else {
-        util.toastFail(res.data.msg)
+        util.toast(res.data.msg)
       }
     } catch (err) {
       console.log(err)
