@@ -33,6 +33,13 @@ Page({
     wx.navigateBack()
   },
 
+  // 跳转关于我
+  goAboutMe() {
+    wx.navigateTo({
+      url: '../aboutMe/aboutMe',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

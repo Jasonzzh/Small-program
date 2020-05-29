@@ -1,0 +1,4 @@
+<!--pages/aboutMe/aboutMe.wxml-->
+<go-back title="关于我"/>
+<rich-text nodes="{{ aboutMe.content }}" style="padding-top: {{ menuBP.top }}px"></rich-text>
+<view bindtap="copyUrl" bindtap="copyUrl" data-src="{{ src }}" class="copy">点击复制地址</view>

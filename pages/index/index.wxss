@@ -19,6 +19,7 @@
 
 .banner {
   width: 100%;
+  height: 360rpx;
   margin: 0 auto;
 }
 
@@ -28,6 +29,7 @@
 
 .banner .banner-li .slide-image {
   width: 100%;
+  height: 360rpx;
 }
 
 .news-list {
@@ -114,7 +116,7 @@
   }
 }
 
-@keyframes loading_after{
+@keyframes loading_after {
   0% {
     border-top:10rpx solid #9b59b6;
     border-bottom:10rpx solid #9b59b6;

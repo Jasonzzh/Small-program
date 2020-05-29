@@ -1,0 +1,23 @@
+/* pages/aboutMe/aboutMe.wxss */
+rich-text {
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 66rpx;
+  display: block;
+  margin: 86rpx 30rpx 0;
+  color: #999;
+}
+
+.img {
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin: 80rpx auto 30rpx;
+}
+
+.copy {
+  text-align: center;
+  font-size: 30rpx;
+  color: green;
+}

@@ -6,7 +6,7 @@
 
 .container {
   position: relative;
-  margin-top: 92rpx;
+  margin-top: 86rpx;
   overflow: hidden;
 }
 

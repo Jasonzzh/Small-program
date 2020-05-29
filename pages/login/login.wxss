@@ -1,7 +1,7 @@
 /* pages/login/login.wxss */
 .login {
   position: relative;
-  margin-top: 98rpx;
+  margin-top: 88rpx;
 }
 
 .login .logo {

@@ -18,15 +18,16 @@ Page({
     category: 6,
   },
 
-  onLoad: function () {
-    this.getInit()
+  onLoad: async function () {
+    util.loading('加载中')
+    await this.getInit()
+    wx.hideToast()
   },
 
   async getInit() {
-    util.loading('加载中')
     const p1 = this.getArticleLsit()
-    Promise.all([p1])
-    wx.hideToast()
+      , p2 = this.getArticleCategroy()
+    await Promise.all([p1, p2])
   },
 
   /* 获取列表数据 */
@@ -49,7 +50,23 @@ Page({
         })
       }
     } catch (err) {
-      util.toast('数据获取失败!请检查网络!')
+      util.error(err)
+    }
+  },
+
+  // 获取文章分类
+  async getArticleCategroy() {
+    try {
+      const res = await util.reqAsync(api.getArticleCategroy)
+      if (res.data.code == 200) {
+        this.setData({
+          categoryList: res.data.data
+        })
+      } else {
+        util.toast(res.data.msg)
+      }
+    } catch (err) {
+      util.error(err)
     }
   },
 
@@ -87,7 +104,7 @@ Page({
       newsList: [],
       isDataCompleted: false,
     })
-    await this.getArticleLsit()
+    await this.getInit()
     wx.stopPullDownRefresh()
   },
 

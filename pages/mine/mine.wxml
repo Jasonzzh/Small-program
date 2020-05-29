@@ -10,7 +10,7 @@
         <span wx:if="{{!userInfo}}">/</span>
         <span bindtap="goLogin" wx:if="{{!userInfo}}">注册</span>
         <span wx:if="{{userInfo}}">{{userInfo.name}}</span>
-        <view class="user-name">用户名: {{userInfo.iphone ? userInfo.iphone : '无'}}</view>
+        <view class="user-name">用户ID: {{userInfo.iphone ? userInfo.iphone : '无'}}</view>
       </view>
       <view class="arrow-right-box" bindtap="goProfile">
         <image src="/images/arrow-right.png" mode="widthFix" class="arrow-right"/>

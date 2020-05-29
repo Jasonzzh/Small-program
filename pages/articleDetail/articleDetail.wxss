@@ -6,7 +6,7 @@
   position: relative;
   padding: 0 26rpx;
   background: #FFF;
-  margin-top: 96rpx;
+  margin-top: 86rpx;
 }
 
 .title {

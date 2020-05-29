@@ -15,7 +15,7 @@ Page({
     password: '',
     checked: true,
     loginModel: false,
-    userId: '',
+    rgIphone: '',
     userPwd: '',
     autograph: '',
   },
@@ -34,10 +34,11 @@ Page({
         iphone,
         password,
       }
-    if (!this.isCheckInfo()) return
+    if (!this.isCheckInfo(iphone, password)) return
     util.loading('登录中...')
     try {
       const res = await util.reqAsync(api.login, params)
+      wx.hideToast()
       if (res.data.code == 200) {
         app.globalData.userInfo = res.data.data
         wx.setStorageSync('userInfo', res.data.data)
@@ -53,19 +54,15 @@ Page({
   },
 
   // 登录校验
-  isCheckInfo() {
-    const { iphone, password } = this.data
+  isCheckInfo(iphone, password) {
+    const regPhone = /^1[3456789]\d{9}$/
     if (typeof iphone == "undefined" || iphone == null || iphone == '') {
-      wx.showToast({
-        title: '用户名不能为空',
-        icon: 'none',
-      })
+      util.toast('请输入账号ID(手机号)')
       return false
+    } else if (!regPhone.test(iphone)) {
+      util.toast('请输入正确的手机号')
     } else if (typeof password == "undefined" || password == null || password == '') {
-      wx.showToast({
-        title: '请输入密码',
-        icon: 'none',
-      })
+      util.toast('请输入密码')
       return false
     }
     return true
@@ -120,17 +117,30 @@ Page({
 
   // 注册
   async register() {
-    const { userId, userPwd, autograph, name, userPic } = this.data
+    const { rgIphone, rgPassword, autograph, name, userPic } = this.data
       , params = {
-        iphone: userId,
-        password: userPwd,
+        iphone: rgIphone,
+        password: rgPassword,
         autograph,
         name,
         userPic,
-        id: userId,
+        id: rgIphone,
       }
+    if (!this.isCheckInfo(rgIphone, rgPassword)) return
     try {
+      util.loading('注册中')
       const res = await util.reqAsync(api.register, params)
+      wx.hideToast()
+      if (res.data.code == 200) {
+        util.toastSuccess('注册成功!')
+        this.setData({
+          iphone: rgIphone,
+          password: rgPassword,
+        })
+        this.login()
+      } else {
+        util.toast(res.data.msg)
+      }
     } catch (err) {
       util.toast('网络异常！，请检查网络是否连接！')
       console.log(err)

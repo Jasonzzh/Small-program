@@ -1,0 +1,6 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "go-back": "/components/common/goBack/goBack"
+  }
+}

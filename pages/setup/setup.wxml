@@ -7,7 +7,7 @@
         不错，推荐给好友 
         <image src="/images/arrow-right.png" mode="widthFix"/>
       </button>
-      <view class="about-me">
+      <view class="about-me" bindtap="goAboutMe">
         关于我们
         <image src="/images/arrow-right.png" mode="widthFix"/>
       </view>

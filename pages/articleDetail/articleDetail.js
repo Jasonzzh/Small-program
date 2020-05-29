@@ -27,18 +27,16 @@ Page({
     this.setData({
       id: options.id
     })
-    wx.showLoading({
-      title: '加载中...',
-    })
-    this.getData().then(() => {
-      wx.hideLoading()
-    })
+    this.getInit()
   },
   
   // 获取数据
-  async getData() {
-    this.getArticle()
-    this.getComments()
+  async getInit() {
+    util.loading('加载中')
+    const p1 = this.getArticle()
+      , p2 = this.getComments()
+    await Promise.all([p1, p2])
+    wx.hideToast()
   },
 
   // 获取文章详情

@@ -31,6 +31,7 @@ const reqAsync = (url,params) => {
   return p
 }
 
+// tips 提示封装
 const loading = (msg) => {
   wx.showToast({
     title: msg,
@@ -52,6 +53,11 @@ const toastSuccess = (msg) => {
     icon: 'success',
     duration: 1200
   })
+}
+
+const error = (err) => {
+  toast('数据获取失败!请检查网络!')
+  console.log(err)
 }
 
 // 是否登录
@@ -82,5 +88,6 @@ module.exports = {
   loading,
   toast,
   toastSuccess,
+  error,
   isLogin,
 }

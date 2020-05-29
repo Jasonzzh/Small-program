@@ -10,7 +10,8 @@
     "pages/music/music",
     "pages/articleDetail/articleDetail",
     "pages/myCollectArticles/myCollectArticles",
-    "pages/myBlogs/myBlogs"
+    "pages/myBlogs/myBlogs",
+    "pages/aboutMe/aboutMe"
   ],
   "window": {
     "backgroundTextStyle": "light",

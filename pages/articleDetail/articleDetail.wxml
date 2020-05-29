@@ -2,60 +2,60 @@
 <view class="article-box">
   <go-back title="{{ title }}" />
   <view class="article-detail" style="padding-top: {{ menuBP.top }}px">
-    <view class="title">{{articleData.title}}</view>
+    <view class="title">{{ articleData.title }}</view>
     <view class="userInfo">
-      <image src="{{articleData.authorPortrait ? articleData.authorPortrait : defaultPortrait}}" class="userPic"/>
+      <image src="{{ articleData.authorPortrait ? articleData.authorPortrait : defaultPortrait }}" class="userPic"/>
       <view class="name">
         <view class="user-name">
-          {{articleData.authorName}}
+          {{ articleData.authorName }}
         </view>
         <view class="time">
-          {{articleData.releaseDate}}
+          {{ articleData.releaseDate }}
         </view>
       </view>
       <view class="follow">关注</view>
     </view>
     <view class="content">
-      <rich-text nodes="{{articleData.content}}" space="nbsp"/>
+      <rich-text nodes="{{ articleData.content }}" space="nbsp"/>
     </view>
   </view>
   <view class="comment-box">
     <view class="comment-title">讨论</view>
     <view class="comment-list">
-      <view class="comment-item" wx:for="{{commentList}}" wx:key="index">
+      <view class="comment-item" wx:for="{{ commentList }}" wx:key="index">
         <view class="content-top">
           <image src="{{item.userPic}}" class="imgPic"/>
           <view class="comment-userInfo">
-            <view class="name">{{item.name}}</view>
+            <view class="name">{{ item.name }}</view>
             <view class="autograph">
-              {{item.autograph}}
+              {{ item.autograph }}
             </view>
           </view>
           <view class="feel-like">
             <image src="/images/articleDetails/like.png"/>
-            {{item.commentLike}}
+            {{ item.commentLike }}
           </view>
         </view>
-        <view class="comment-text">{{item.content}}</view>
+        <view class="comment-text">{{ item.content }}</view>
       </view>
     </view>
-    <view class="no-comment" wx:if="{{loadingStatus && !commentList.length}}">暂无评论</view>
-    <view class="loading-status" wx:else>{{loadingStatus ? '没有更多了~' : '正在加载'}}</view>
+    <view class="no-comment" wx:if="{{ loadingStatus && !commentList.length }}">暂无评论</view>
+    <view class="loading-status" wx:else>{{ loadingStatus ? '没有更多了~' : '正在加载' }}</view>
   </view>
-  <view class="foot-bar" style="padding-bottom: {{isIphoneX !== -1 ? '10px' : 0}}" hidden="{{isFocus}}">
+  <view class="foot-bar" style="padding-bottom: {{ isIphoneX !== -1 ? '10px' : 0 }}" hidden="{{ isFocus }}">
     <view class="good-like" bindtap="clickLick">
-      <image src="{{!isLike ? '/images/articleDetails/likeIcon.png' : '/images/articleDetails/likeIconActive.png'}}" mode="widthFix"/>
-      {{detailData.dynamicLike}}
+      <image src="{{ !isLike ? '/images/articleDetails/likeIcon.png' : '/images/articleDetails/likeIconActive.png' }}" mode="widthFix"/>
+      {{ detailData.dynamicLike }}
     </view>
     <view class="open-comment" bindtap="openKeyboard">
       <image src="/images/articleDetails/commentIcon.png" mode="widthFix"/>
-      {{detailData.dynamicComment}}
+      {{ detailData.dynamicComment }}
     </view>
     <button class="open-share" open-type='share'>
       <image src="/images/articleDetails/shareIcon.png" mode="widthFix"/>
     </button>
   </view>
-  <view class="write-input" style="padding-bottom: {{isIphoneX !== -1 ? '20px' : '10px'}}" style="opacity: {{ isFocus ? '1' : '0' }}">
-    <input placeholder="快来说点什么吧~" value="{{inputValue}}" focus="{{isFocus}}" bindblur="closeKeyboard" placeholder-style="color: #CCC;" bindconfirm="sendText" bindinput="changeInput"/>
+  <view class="write-input" style="padding-bottom: {{ isIphoneX !== -1 ? '20px' : '10px' }}" style="opacity: {{ isFocus ? '1' : '0' }}">
+    <input placeholder="快来说点什么吧~" value="{{ inputValue }}" focus="{{ isFocus }}" bindblur="closeKeyboard" placeholder-style="color: #CCC;" bindconfirm="sendText" bindinput="changeInput"/>
   </view>
 </view>

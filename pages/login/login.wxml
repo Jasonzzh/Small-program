@@ -4,7 +4,7 @@
   <image src="/images/logo/logo.png" mode="widthFix" class="logo"></image>
   <view class="form">
     <van-cell-group>
-      <van-field value="{{ iphone }}" placeholder="请输入账号ID" border="{{ false }}" bind:change="onChangeIphone" left-icon="user-circle-o" />
+      <van-field value="{{ iphone }}" placeholder="请输入账号ID(手机号)" border="{{ false }}" bind:change="onChangeIphone" left-icon="user-circle-o" />
       <van-field value="{{ password }}" type="password" placeholder="请输入密码" border="{{ false }}" bind:change="onChangePassword" left-icon="goods-collect-o" />
     </van-cell-group>
     <van-button type="default" class="submit" bindtap="login">登录</van-button>
