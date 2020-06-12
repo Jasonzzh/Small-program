@@ -27,16 +27,6 @@ Page({
     })
   },
 
-  // 跳转设置
-  goSetup() {
-    wx.navigateTo({
-      url: '../setup/setup',
-      success: function (res) {
-        console.log(res)
-      }
-    })
-  },
-
   // 跳转个人资料
   goProfile() {
     const { userInfo } = this.data
@@ -55,6 +45,30 @@ Page({
         }
       })
     }
+  },
+
+  goTo(e) {
+    let { type } = e.currentTarget.dataset
+      , url = ''
+    console.log(type)
+    switch (type) {
+      case '1':
+        url = '../myBlogs/myBlogs'
+        break
+      case '2':
+        return
+      case '3':
+        return
+      case '4':
+        url = '../setup/setup'
+        break
+      default:
+        return
+    }
+    wx.navigateTo({
+      url,
+      success: (res) => console.log(res)
+    })
   },
   
   /**

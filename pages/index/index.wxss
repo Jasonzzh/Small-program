@@ -1,4 +1,8 @@
 /**index.wxss**/
+.index {
+  background: rgb(246,246,246);
+}
+
 .content-box {
   position: relative;
   width: 100%;
@@ -60,11 +64,17 @@
   font-size: 24rpx;
   display: flex;
   margin-bottom: 24rpx;
+  justify-content: space-between;
 }
 
-.tag-info  .read-count {
-  margin-left: auto;
+.tag-info .read-count {
   color: #999;
+  display: flex;
+  align-items: center;
+}
+
+.tag-info .read-count van-icon {
+  margin: 0 6rpx 0 10rpx;
 }
 
 .tag-info .author {

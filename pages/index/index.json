@@ -5,6 +5,7 @@
   "usingComponents": {
     "index-topbar": "/components/common/index-topbar/index-topbar",
     "van-tab": "vant-weapp/tab",
-    "van-tabs": "vant-weapp/tabs"
+    "van-tabs": "vant-weapp/tabs",
+    "van-icon": "vant-weapp/icon"
   }
 }

@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="index">
+<view class="index" style="min-height: calc(100vh - {{ menuBP.top }}px)">
   <index-topbar/>
   <view class="content-box" style="margin-top: {{ menuBP.top }}px">
     <van-tabs swipeable line-width="20" line-height="2" animated bind:change="onChangeTab">
@@ -21,7 +21,7 @@
                   <view class="author">{{ item.authorName }}</view>
                   <view class="read-count">
                     <span class="date">{{ item.releaseDate }}</span>
-                    阅读量{{ item.readCount }}
+                    <van-icon name="eye-o" />{{ item.readCount }}
                   </view>
                 </view>
               </view>

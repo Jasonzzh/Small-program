@@ -36,7 +36,7 @@
     </view>
   </view>
   <view class="action-list">
-    <view class="action-item">
+    <view class="action-item" bindtap="goTo" data-type="1">
       <view class="icon" style="background: rgb(230,74,82);">
         <image src="/images/article.png" mode="widthFix"/>
       </view>
@@ -45,7 +45,7 @@
         <view class="article-num">0 篇 <image src="/images/arrow-right.png" mode="widthFix"/></view>
       </view>
     </view>
-    <view class="action-item">
+    <view class="action-item" bindtap="goTo" data-type="2">
       <view class="icon" style="background: rgb(66,211,164);">
         <image src="/images/collection.png" mode="widthFix"/>
       </view>
@@ -54,7 +54,7 @@
         <view class="article-num">0 篇 <image src="/images/arrow-right.png" mode="widthFix"/></view>
       </view>
     </view>
-    <view class="action-item">
+    <view class="action-item" bindtap="goTo" data-type="3">
       <view class="icon" style="background: rgb(255,183,60);">
         <image src="/images/write-blog.png" mode="widthFix"/>
       </view>
@@ -65,11 +65,11 @@
         </view>
       </view>
     </view>
-    <view class="action-item">
+    <view class="action-item" bindtap="goTo" data-type="4">
       <view class="icon" style="background: rgb(159,166,184);">
         <image src="/images/setup.png" mode="widthFix"/>
       </view>
-      <view class="item-text" bindtap="goSetup">
+      <view class="item-text">
         <view class="name">设置</view>
         <view class="article-num">
           <image src="/images/arrow-right.png"  mode="widthFix"/>
