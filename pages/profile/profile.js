@@ -20,6 +20,7 @@ Page({
   onLoad: function (options) {
 
   },
+
   cancle() {
     wx.navigateBack()
   },
@@ -41,6 +42,7 @@ Page({
           userInfo: data
         })
         wx.setStorageSync('userInfo', data)
+        this.cancle()
       } else {
         util.toast(res.data.msg)
       }
