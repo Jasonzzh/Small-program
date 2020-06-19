@@ -1,8 +1,6 @@
 /* pages/setup/setup.wxss */
 .setup {
   position: relative;
-  padding-bottom: 938rpx;
-  background: rgb(245,245,245);
 }
 
 .container {
